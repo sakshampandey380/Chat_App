@@ -1,0 +1,202 @@
+.chat-shell {
+    display: grid;
+    grid-template-columns: 360px minmax(0, 1fr);
+    gap: 20px;
+    align-items: stretch;
+}
+
+.chat-sidebar,
+.chat-panel {
+    border-radius: 30px;
+    min-height: calc(100vh - 48px);
+}
+
+.chat-sidebar {
+    padding: 20px;
+}
+
+.chat-sidebar-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 18px;
+}
+
+.chat-sidebar-head h2,
+.chat-header h2 {
+    margin: 0;
+}
+
+.chat-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-height: calc(100vh - 190px);
+    overflow: auto;
+    padding-right: 6px;
+}
+
+.chat-user {
+    width: 100%;
+    text-align: left;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 24px;
+    padding: 16px;
+    color: inherit;
+    background: rgba(255, 255, 255, 0.04);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    cursor: pointer;
+    transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.chat-user:hover,
+.chat-user.is-active {
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.07);
+    border-color: rgba(255, 176, 75, 0.3);
+}
+
+.chat-user-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+    color: var(--muted);
+    font-size: 0.82rem;
+}
+
+.unread-pill {
+    min-width: 28px;
+    height: 28px;
+    border-radius: 999px;
+    display: grid;
+    place-items: center;
+    padding: 0 8px;
+    color: #091018;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--secondary), #9cf9f0);
+}
+
+.chat-panel {
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr) auto;
+    overflow: hidden;
+}
+
+.chat-header {
+    padding: 24px 28px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.chat-header p {
+    margin: 6px 0 0;
+    color: var(--muted);
+}
+
+.messages-board {
+    padding: 26px;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    background:
+        radial-gradient(circle at top right, rgba(255, 176, 75, 0.08), transparent 28%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 0.03));
+}
+
+.message-row {
+    display: flex;
+}
+
+.message-row.is-mine {
+    justify-content: flex-end;
+}
+
+.message-bubble {
+    max-width: min(72%, 520px);
+    padding: 16px 18px 12px;
+    border-radius: 22px 22px 22px 8px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 18px 30px rgba(0, 0, 0, 0.18);
+}
+
+.message-row.is-mine .message-bubble {
+    color: #0e1318;
+    background: linear-gradient(135deg, #ffd39a, #ff9f45);
+    border-radius: 22px 22px 8px 22px;
+    border-color: transparent;
+}
+
+.message-bubble p {
+    margin: 0;
+    line-height: 1.6;
+    word-break: break-word;
+}
+
+.message-bubble span {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 0.78rem;
+    opacity: 0.8;
+}
+
+.message-media {
+    margin-bottom: 12px;
+    border-radius: 16px;
+    max-height: 280px;
+    object-fit: cover;
+    width: 100%;
+}
+
+.composer {
+    padding: 20px 24px 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    gap: 14px;
+    align-items: end;
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.composer-attach {
+    position: relative;
+    overflow: hidden;
+    border-radius: 18px;
+    padding: 14px 16px;
+    border: 1px dashed rgba(255, 255, 255, 0.18);
+    background: rgba(255, 255, 255, 0.04);
+    color: #dcecff;
+    cursor: pointer;
+}
+
+.composer-attach input {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.composer textarea {
+    resize: none;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 22px;
+    padding: 16px 18px;
+    color: var(--text);
+    background: rgba(255, 255, 255, 0.05);
+    min-height: 58px;
+    max-height: 180px;
+    outline: none;
+}
+
+.composer-hint {
+    margin: 8px 24px 22px;
+    min-height: 20px;
+    color: var(--muted);
+    font-size: 0.88rem;
+}
